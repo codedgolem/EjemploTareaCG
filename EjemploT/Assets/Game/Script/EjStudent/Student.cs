@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class Student : Person
 {
-    private string courseS;
-    private string codeS;
+    [SerializeField] private string courseS;
+    [SerializeField] private string codeS;
 
     public Student()
     {
