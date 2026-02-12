@@ -80,7 +80,7 @@ public class ControllerScene_3 : MonoBehaviour
 
     public void LoadJson()
     {
-        string path = Application.persistentDataPath + "/students.json";
+        string path = Application.dataPath + "/students.json";
         if (File.Exists(path)) {
             string infoJson = File.ReadAllText(path);
             DatosGuardados datos = JsonUtility.FromJson<DatosGuardados>(infoJson);
