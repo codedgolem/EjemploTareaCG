@@ -8025,8 +8025,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ControllerScene1
   tiempoJuego: {fileID: 1511837827}
   txtCountApple: {fileID: 1905011602}
-  txtCountOrange: {fileID: 0}
-  txtCountKiwi: {fileID: 0}
+  txtCountOrange: {fileID: 1905011602}
+  txtCountKiwi: {fileID: 1905011602}
   txtCountBanana: {fileID: 1531734615}
   txtMision: {fileID: 2056442108}
 --- !u!4 &335514473
@@ -8037,7 +8037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335514471}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 619.00305, y: 75.7847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10159,8 +10159,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 750760484}
   - {fileID: 8921920227797453149}
-  - {fileID: 1544407988}
   - {fileID: 335514473}
+  - {fileID: 1544407988}
   - {fileID: 1511837828}
   - {fileID: 38275359}
   - {fileID: 1223990294}
