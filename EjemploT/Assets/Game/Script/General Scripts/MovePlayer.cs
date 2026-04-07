@@ -30,37 +30,28 @@ public class MovePlayer : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(moveInput.x * speed, rb.linearVelocity.y);
 
-        
-
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayDistance, groundLayer);
         isGrounded = hit.collider != null;
-  
     }
 
     private void Update()
     {
         animacion.SetFloat("Movimiento", moveInput.x * speed);
 
-        if ((moveInput.x * speed) < 0)
+        // 🔥 CORRECCIÓN: mantener escala original y solo voltear
+        if (moveInput.x != 0)
         {
-            transform.localScale = new Vector2(-1, 1);
-
-        }
-        else if ((moveInput.x * speed) > 0)
-        {
-            transform.localScale = new Vector2(1, 1);
+            Vector3 escala = transform.localScale;
+            escala.x = Mathf.Sign(moveInput.x) * Mathf.Abs(escala.x);
+            transform.localScale = escala;
         }
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-
         if (context.performed && isGrounded)
         {
-           
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
     }
 }
-
-

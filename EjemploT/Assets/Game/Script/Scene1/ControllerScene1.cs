@@ -45,9 +45,18 @@ public class ControllerScene1 : MonoBehaviour
     }
 
     public void getTotal() {
-        txtCountApple.text = GameManager.Instance.TotalApple.ToString();
-        txtCountOrange.text = GameManager.Instance.TotalOrange.ToString();
-        txtCountKiwi.text = GameManager.Instance.TotalKiwi.ToString();
-        txtCountBanana.text = GameManager.Instance.TotalBanana.ToString();
+    {
+        if (txtCountApple != null)
+            txtCountApple.text = GameManager.Instance.TotalApple.ToString();
+
+        if (txtCountOrange != null)
+            txtCountOrange.text = GameManager.Instance.TotalOrange.ToString();
+
+        if (txtCountKiwi != null)
+            txtCountKiwi.text = GameManager.Instance.TotalKiwi.ToString();
+
+        if (txtCountBanana != null)
+            txtCountBanana.text = GameManager.Instance.TotalBanana.ToString();
     }
+}
 }

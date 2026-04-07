@@ -1,62 +1,60 @@
-using NUnit.Framework.Interfaces;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class InstanciaFrutas : MonoBehaviour
 {
-
     public GameObject Prefab;
 
     public Transform[] instanciaPuntos;
+
     public List<ItemS> items;
-    private int cantidad;
-    List<int> usados = new List<int>();
+
     Sprite[] sprites;
     Sprite spriteI;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         SpawnItems(GameManager.Instance.listaColeccionables);
     }
 
- 
-
     void SpawnItems(List<Collecionable> lista)
     {
-        foreach(var coleccionable in lista)
+        int puntoActual = 0;
+
+        foreach (var coleccionable in lista)
         {
             ItemData item = ScriptableObject.CreateInstance<ItemData>();
+
             item.nombre = coleccionable.nombre;
             item.rareza = coleccionable.rareza;
             item.valor = coleccionable.valor;
-            item.itemType = (ItemType)System.Enum.Parse(typeof(ItemType), coleccionable.nombre, true); 
+            item.itemType = (ItemType)System.Enum.Parse(typeof(ItemType), coleccionable.nombre, true);
             item.iconoid = coleccionable.iconoId;
 
             foreach (var spawn in items)
             {
-                if(spawn.nombre.Equals(item.itemType.ToString()))
+                if (spawn.nombre.ToLower().Trim() == item.itemType.ToString().ToLower().Trim())
                 {
-                    cantidad = spawn.cantidad;
-                    Debug.Log("Cantidad de " + spawn.nombre + ": Cantidad:" + cantidad);
-                    for (int i = 0; i < cantidad; i++)
+                    for (int i = 0; i < spawn.cantidad; i++)
                     {
-                        int randomIndex;
-
-                        do
+                        if (puntoActual >= instanciaPuntos.Length)
                         {
-                            randomIndex = Random.Range(0, instanciaPuntos.Length);
+                            Debug.LogWarning("No hay más puntos disponibles");
+                            return;
                         }
-                        while (usados.Contains(randomIndex));
 
-                        usados.Add(randomIndex);
+                        Transform punto = instanciaPuntos[puntoActual];
 
-                        GameObject obj = Instantiate(Prefab, instanciaPuntos[randomIndex].position, Quaternion.identity);
+                        GameObject obj = Instantiate(
+                            Prefab,
+                            punto.position,
+                            Quaternion.identity
+                        );
 
-                        sprites = Resources.LoadAll<Sprite>("Fruits/"+item.iconoid);
+                        // Cargar sprite
+                        sprites = Resources.LoadAll<Sprite>("Fruits/" + item.iconoid);
 
+                        spriteI = null;
                         foreach (Sprite s in sprites)
                         {
                             if (s.name == item.iconoid + "_0")
@@ -66,26 +64,13 @@ public class InstanciaFrutas : MonoBehaviour
                             }
                         }
 
-
                         obj.GetComponent<ItemRecolectable>()._itemData_ = item;
                         obj.GetComponent<SpriteRenderer>().sprite = spriteI;
 
-                        
-
-
-
+                        puntoActual++; // 👉 pasa al siguiente punto
                     }
                 }
             }
-     
         }
-
-       
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
