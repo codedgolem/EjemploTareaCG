@@ -136,7 +136,6 @@ public class MissionManager : MonoBehaviour
                 return GameManager.Instance.TotalKiwi;
 
             case "Banana":
-                Debug.Log("ENTROBANANA-------------------------------------------------" + GameManager.Instance.TotalBanana);
                 return GameManager.Instance.TotalBanana;
 
             case "Pineapple":

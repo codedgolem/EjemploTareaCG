@@ -7,7 +7,9 @@ public class ControllerScene2 : MonoBehaviour
     public TextMeshProUGUI txtCountOrange;
     public TextMeshProUGUI txtCountKiwi;
     public TextMeshProUGUI txtCountBanana;
+    public TextMeshProUGUI txtCountPineapple;
     public TextMeshProUGUI txtMision;
+    public GameObject panelMision;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Timer tiempoJuego;
     void Start()
@@ -35,9 +37,27 @@ public class ControllerScene2 : MonoBehaviour
 
     public void getTotal()
     {
-        txtCountApple.text = GameManager.Instance.TotalApple.ToString();
-        txtCountOrange.text = GameManager.Instance.TotalOrange.ToString();
-        txtCountKiwi.text = GameManager.Instance.TotalKiwi.ToString();
-        txtCountBanana.text = GameManager.Instance.TotalBanana.ToString();
+        if (txtCountApple != null)
+            txtCountApple.text = GameManager.Instance.TotalApple.ToString();
+
+        if (txtCountOrange != null)
+            txtCountOrange.text = GameManager.Instance.TotalOrange.ToString();
+
+        if (txtCountKiwi != null)
+            txtCountKiwi.text = GameManager.Instance.TotalKiwi.ToString();
+
+        if (txtCountBanana != null)
+            txtCountBanana.text = GameManager.Instance.TotalBanana.ToString();
+
+        if (txtCountPineapple != null)
+            txtCountPineapple.text = GameManager.Instance.TotalPineapple.ToString();
+    }
+    public void mostrarPanelMision()
+    {
+        panelMision.SetActive(true);
+    }
+    public void ocultarPanelMision()
+    {
+        panelMision.SetActive(false);
     }
 }

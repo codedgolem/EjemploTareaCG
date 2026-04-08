@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +12,8 @@ public class ControllerScene1 : MonoBehaviour
     public TextMeshProUGUI txtCountKiwi;
     public TextMeshProUGUI txtCountBanana;
     public TextMeshProUGUI txtMision;
-    
+    public GameObject panelMision;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,7 +47,7 @@ public class ControllerScene1 : MonoBehaviour
     }
 
     public void getTotal() {
-    {
+        {
         if (txtCountApple != null)
             txtCountApple.text = GameManager.Instance.TotalApple.ToString();
 
@@ -57,6 +59,14 @@ public class ControllerScene1 : MonoBehaviour
 
         if (txtCountBanana != null)
             txtCountBanana.text = GameManager.Instance.TotalBanana.ToString();
+        }
     }
-}
+    public void mostrarPanelMision()
+    {
+        panelMision.SetActive(true);
+    }
+    public void ocultarPanelMision()
+    {
+        panelMision.SetActive(false);
+    }
 }

@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.1818, y: -0.9998, z: 0}
-  m_LocalScale: {x: 0.7463, y: 0.7463, z: 0.7463}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemRecolectable
   _itemData_: {fileID: 11400000, guid: 63768414ff079af42a7cb4da982c5e1c, type: 2}
   sonido: {fileID: 8300000, guid: 4be55602f44b0ee4ea24b939e03ee4ab, type: 3}
+  Prefab: {fileID: 0}
 --- !u!58 &2440164144358984287
 CircleCollider2D:
   m_ObjectHideFlags: 0
