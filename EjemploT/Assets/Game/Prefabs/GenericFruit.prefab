@@ -141,6 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfef39a767535e941819a4d62d67a98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemRecolectable
-  _itemData_: {fileID: 0}
+  _itemData_: {fileID: 11400000, guid: 4671ea6f60881b1448a36f8f6167c676, type: 2}
   sonido: {fileID: 8300000, guid: 4be55602f44b0ee4ea24b939e03ee4ab, type: 3}
   Prefab: {fileID: 1727657741096781215, guid: 6475e368cf0817547bd6855e1619feea, type: 3}
