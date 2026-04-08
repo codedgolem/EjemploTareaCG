@@ -3,6 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+
+    void Start()
+    {
+        if (MissionManager.Instance != null)
+        {
+            MissionManager.Instance.JsonLectura(Application.streamingAssetsPath + "/coleccionables_actualizado.json");
+        }
+    }
+
     [Header("UI Panels")]
     public GameObject panelInstrucciones;
 
@@ -29,6 +38,10 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Saliendo del juego...");
         Application.Quit();
-       
+
     }
+
+    
+
+   
 }

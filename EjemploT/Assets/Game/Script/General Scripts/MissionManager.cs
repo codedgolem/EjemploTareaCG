@@ -90,7 +90,7 @@ public class MissionManager : MonoBehaviour
         else
         {
             txtMision.text = "Mision completada: " + misionActual.titulo +
-                "\n No hay mas misiones disponibles";
+                "\n No hay mas niveles disponibles, regresa al menu";
             Debug.Log("No hay misiones disponibles");
         }
     }

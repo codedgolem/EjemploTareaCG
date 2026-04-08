@@ -36,13 +36,32 @@ public class ItemRecolectable : MonoBehaviour
 
                 GameObject obj = Instantiate(Prefab, canvas.transform, false);
 
-                Button boton = obj.GetComponentInChildren<Button>();
-                boton.onClick.AddListener(() =>
+                if (GameManager.Instance.escena == 2)
                 {
-                    LoaderScene.Instance.LoadScene("Escena" + (GameManager.Instance.escena + 1));
-                });
+                    Button boton = obj.GetComponentInChildren<Button>();
+                    boton.onClick.AddListener(() =>
+                    {
+                        LoaderScene.Instance.LoadScene("Menu");
+                    });
 
-                MissionManager.Instance.siguienteMision(obj.GetComponentInChildren<TextMeshProUGUI>());
+                    boton.GetComponentInChildren<TextMeshProUGUI>().text = "Volver al menu";
+
+                    MissionManager.Instance.siguienteMision(obj.GetComponentInChildren<TextMeshProUGUI>());
+                }else
+                {
+
+                    Button boton = obj.GetComponentInChildren<Button>();
+                    boton.onClick.AddListener(() =>
+                    {
+                        LoaderScene.Instance.LoadScene("Escena" + (GameManager.Instance.escena + 1));
+                    });
+
+                    boton.GetComponentInChildren<TextMeshProUGUI>().text = "Siguiente nivel";
+
+                    MissionManager.Instance.siguienteMision(obj.GetComponentInChildren<TextMeshProUGUI>());
+                }
+
+
             }
             
             Destroy(gameObject);

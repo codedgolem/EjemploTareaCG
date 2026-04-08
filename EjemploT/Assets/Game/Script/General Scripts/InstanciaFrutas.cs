@@ -33,7 +33,7 @@ public class InstanciaFrutas : MonoBehaviour
 
             foreach (var spawn in items)
             {
-                if (spawn.nombre.ToLower().Trim() == item.itemType.ToString().ToLower().Trim())
+                if (spawn.nombre.ToLower().Trim().Equals(item.itemType.ToString().ToLower().Trim()))
                 {
                     for (int i = 0; i < spawn.cantidad; i++)
                     {
@@ -67,7 +67,7 @@ public class InstanciaFrutas : MonoBehaviour
                         obj.GetComponent<ItemRecolectable>()._itemData_ = item;
                         obj.GetComponent<SpriteRenderer>().sprite = spriteI;
 
-                        puntoActual++; // 👉 pasa al siguiente punto
+                        puntoActual++; 
                     }
                 }
             }
